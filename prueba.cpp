@@ -2,8 +2,8 @@
 #include <SFML/System.hpp>  // Para sf::Clock
 
 int main() {
-    // Crear una ventana de 800x600 píxeles
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Mostrar Imagen PNG");
+    // Crear una ventana de 800x600 píxeles sin bordes (sin marco)
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Mostrar Imagen PNG", sf::Style::None);
 
     // Cargar la imagen desde un archivo PNG
     sf::Texture texture;
@@ -22,7 +22,7 @@ int main() {
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
-            // Cerrar la ventana si el usuario lo solicita
+            // Cerrar la ventana si el usuario lo solicita (ej: tecla Esc)
             if (event.type == sf::Event::Closed)
                 window.close();
         }
