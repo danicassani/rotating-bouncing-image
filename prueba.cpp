@@ -2,9 +2,6 @@
 #include <SFML/System.hpp>  // Para sf::Clock
 
 int main() {
-    // Crear una ventana de 800x600 píxeles sin bordes (sin marco)
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Mostrar Imagen PNG", sf::Style::None);
-
     // Cargar la imagen desde un archivo PNG
     sf::Texture texture;
     if (!texture.loadFromFile("perfil.png")) {
@@ -14,6 +11,15 @@ int main() {
     // Crear un sprite y asociarlo a la textura cargada
     sf::Sprite sprite;
     sprite.setTexture(texture);
+
+    // Obtener el tamaño de la imagen
+    sf::Vector2u imagenTamano = texture.getSize();
+    
+    // Escalar el sprite a la cuarta parte de su tamaño
+    sprite.setScale(0.25f, 0.25f);  // Escala al 25% (1/4)
+
+    // Crear una ventana con el tamaño de la imagen y sin bordes
+    sf::RenderWindow window(sf::VideoMode(imagenTamano.x * 0.25f, imagenTamano.y * 0.25f), "Mostrar Imagen PNG", sf::Style::None);
 
     // Crear un reloj para medir el tiempo
     sf::Clock clock;
