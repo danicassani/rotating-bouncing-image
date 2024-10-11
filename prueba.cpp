@@ -41,15 +41,13 @@ int main() {
             window.close();
         }
 
-        // Calcular la rotación (5 vueltas por segundo)
+        // Calcular la rotación (0.5 vueltas por segundo)
         float elapsedTime = clock.getElapsedTime().asSeconds();
-        float rotation = 0.5f * 360.0f * elapsedTime; // 5 vueltas = 5 * 360 grados
-        // sprite.setRotation(rotation);
+        float rotation = 0.5f * 360.0f * elapsedTime;
         sf::Transform transform;
         transform.rotate(rotation, {imagenTamano.x * 0.125f, imagenTamano.y * 0.125f});
-        // sprite.rotate(rotation);
 
-        // Limpiar la ventana con un color de fondo (negro)
+        // Limpiar la ventana con color transparente
         window.clear(sf::Color::Transparent);
 
         // Dibujar el sprite (la imagen escalada y rotada) en la ventana
